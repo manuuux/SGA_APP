@@ -201,6 +201,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Acerca";
+            this.ShowInTaskbar = false;
             this.Text = "Acerca";
             this.ResumeLayout(false);
             this.PerformLayout();
