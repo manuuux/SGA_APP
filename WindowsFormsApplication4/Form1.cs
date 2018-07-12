@@ -16,11 +16,22 @@ namespace WindowsFormsApplication4
     public partial class Form1 : Form
     {
         string SGAURL = "http://172.27.44.23/include/actOS.php";
-        
+        const int WS_MINIMIZEBOX = 0x20000;
+        const int CS_DBLCLKS = 0x8;
         public Form1()
         {
             InitializeComponent();
             this.Text = "SGA APP";
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style |= WS_MINIMIZEBOX;
+                cp.ClassStyle |= CS_DBLCLKS;
+                return cp;
+            }
         }
         private void lblmsg(string msg,int style)
         {
