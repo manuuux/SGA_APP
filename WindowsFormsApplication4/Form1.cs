@@ -146,7 +146,7 @@ namespace WindowsFormsApplication4
             theDialog.InitialDirectory = @"%USERPROFILE%\Desktop";
             if (theDialog.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(theDialog.FileName.ToString());
+                
                 pathToFile = theDialog.FileName;//doesn't need .tostring because .filename returns a string// saves the location of the selected object
 
             }
@@ -191,6 +191,11 @@ namespace WindowsFormsApplication4
         {
             var Acerca = new SGAAPP.Acerca();
             Acerca.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
