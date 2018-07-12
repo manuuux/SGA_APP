@@ -64,6 +64,7 @@ namespace WindowsFormsApplication4
             {
                 TXTID.Text = "";
             }
+            TXTID.BackColor = Color.FromArgb(35, 91, 121);
         }
 
         private void TXTOS_Enter(object sender, EventArgs e)
@@ -72,6 +73,7 @@ namespace WindowsFormsApplication4
             {
                 TXTOS.Text = "";
             }
+            TXTOS.BackColor = Color.FromArgb(35, 91, 121);
         }
 
         private void TXTID_Leave(object sender, EventArgs e)
@@ -79,6 +81,7 @@ namespace WindowsFormsApplication4
             if (TXTID.Text == "") {
                 TXTID.Text = "ID";
             }
+            TXTID.BackColor = Color.FromArgb(70, 129, 160);
         }
 
         private void TXTOS_Leave(object sender, EventArgs e)
@@ -87,6 +90,7 @@ namespace WindowsFormsApplication4
             {
                 TXTOS.Text = "OS";
             }
+            TXTOS.BackColor = Color.FromArgb(70, 129, 160);
         }
 
         protected override void WndProc(ref Message m)
