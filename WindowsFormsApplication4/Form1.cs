@@ -15,6 +15,7 @@ namespace WindowsFormsApplication4
 {
     public partial class Form1 : Form
     {
+        string SGAURL = "http://172.27.44.23/include/actOS.php";
         public Form1()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace WindowsFormsApplication4
                     data["id_bitacora"] = TXTID.Text;
                     data["num_os_new"] = TXTOS.Text;
                     data["num_os_old"] = "0";
-                    var url = TXTURL.Text;
+                    var url = SGAURL;
                     var response = wb.UploadValues(url, "POST", data);
                     string responseInString = Encoding.UTF8.GetString(response);
                     lblmsg("Datos ingresados",2);
@@ -117,19 +118,7 @@ namespace WindowsFormsApplication4
             }
 
         }
-
-        private void TXTURL_Enter(object sender, EventArgs e)
-        {
-            TXTURL.Text = "";
-        }
-
-        private void TXTURL_Leave(object sender, EventArgs e)
-        {
-            if (TXTURL.Text == "")
-            {
-                TXTURL.Text = "http://localhost/post/simplepost.php";
-            }
-        }
+    
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -176,7 +165,7 @@ namespace WindowsFormsApplication4
                         data["id_bitacora"] = datos[0];
                         data["num_os_new"] = datos[1];
                         data["num_os_old"] = "0";
-                        var url = TXTURL.Text;
+                        var url = SGAURL;
                         var response = wb.UploadValues(url, "POST", data);
                         string responseInString = Encoding.UTF8.GetString(response);
                         lblmsg("Datos ingresados", 2);
@@ -184,6 +173,24 @@ namespace WindowsFormsApplication4
                 }
                 
             }
+        }
+
+        private void CHKTrans_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHKTrans.Checked)
+            {
+                this.Opacity = .90;
+            }else
+            {
+
+                this.Opacity = 1;
+            }
+        }
+
+        private void BTNAcerca_Click(object sender, EventArgs e)
+        {
+            var Acerca = new SGAAPP.Acerca();
+            Acerca.Show();
         }
     }
 }

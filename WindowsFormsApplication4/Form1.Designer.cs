@@ -33,7 +33,6 @@
             this.TXTID = new System.Windows.Forms.TextBox();
             this.TXTOS = new System.Windows.Forms.TextBox();
             this.CHKAOT = new System.Windows.Forms.CheckBox();
-            this.TXTURL = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.BTNExtras = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.BTNMasiva = new System.Windows.Forms.Button();
             this.DLGAbrirArchivo = new System.Windows.Forms.OpenFileDialog();
             this.BTNAcerca = new System.Windows.Forms.Button();
+            this.CHKTrans = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // BTNIngresar
@@ -94,17 +94,6 @@
             this.CHKAOT.Text = "Siempre Visible";
             this.CHKAOT.UseVisualStyleBackColor = true;
             this.CHKAOT.CheckedChanged += new System.EventHandler(this.CHKAOT_CheckedChanged);
-            // 
-            // TXTURL
-            // 
-            this.TXTURL.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TXTURL.Location = new System.Drawing.Point(9, 209);
-            this.TXTURL.Name = "TXTURL";
-            this.TXTURL.Size = new System.Drawing.Size(119, 22);
-            this.TXTURL.TabIndex = 111;
-            this.TXTURL.Text = "http://localhost/post/simplepost.php";
-            this.TXTURL.Enter += new System.EventHandler(this.TXTURL_Enter);
-            this.TXTURL.Leave += new System.EventHandler(this.TXTURL_Leave);
             // 
             // button1
             // 
@@ -161,7 +150,7 @@
             this.BTNMasiva.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(129)))), ((int)(((byte)(160)))));
             this.BTNMasiva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNMasiva.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNMasiva.Location = new System.Drawing.Point(-7, 169);
+            this.BTNMasiva.Location = new System.Drawing.Point(-6, 191);
             this.BTNMasiva.Name = "BTNMasiva";
             this.BTNMasiva.Size = new System.Drawing.Size(148, 27);
             this.BTNMasiva.TabIndex = 101;
@@ -178,26 +167,41 @@
             this.BTNAcerca.FlatAppearance.BorderSize = 0;
             this.BTNAcerca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNAcerca.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNAcerca.Location = new System.Drawing.Point(-7, 238);
+            this.BTNAcerca.Location = new System.Drawing.Point(-6, 224);
             this.BTNAcerca.Name = "BTNAcerca";
             this.BTNAcerca.Size = new System.Drawing.Size(149, 28);
             this.BTNAcerca.TabIndex = 112;
             this.BTNAcerca.Text = "Acerca de...";
             this.BTNAcerca.UseVisualStyleBackColor = true;
+            this.BTNAcerca.Click += new System.EventHandler(this.BTNAcerca_Click);
+            // 
+            // CHKTrans
+            // 
+            this.CHKTrans.AutoSize = true;
+            this.CHKTrans.Checked = true;
+            this.CHKTrans.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHKTrans.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHKTrans.Location = new System.Drawing.Point(16, 168);
+            this.CHKTrans.Name = "CHKTrans";
+            this.CHKTrans.Size = new System.Drawing.Size(96, 17);
+            this.CHKTrans.TabIndex = 113;
+            this.CHKTrans.Text = "Transparencia";
+            this.CHKTrans.UseVisualStyleBackColor = true;
+            this.CHKTrans.CheckedChanged += new System.EventHandler(this.CHKTrans_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(129)))), ((int)(((byte)(160)))));
-            this.ClientSize = new System.Drawing.Size(135, 140);
+            this.ClientSize = new System.Drawing.Size(135, 253);
+            this.Controls.Add(this.CHKTrans);
             this.Controls.Add(this.BTNAcerca);
             this.Controls.Add(this.BTNMasiva);
             this.Controls.Add(this.LBLMSG);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BTNExtras);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.TXTURL);
             this.Controls.Add(this.CHKAOT);
             this.Controls.Add(this.TXTOS);
             this.Controls.Add(this.TXTID);
@@ -206,6 +210,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Opacity = 0.9D;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -219,7 +224,6 @@
         private System.Windows.Forms.TextBox TXTID;
         private System.Windows.Forms.TextBox TXTOS;
         private System.Windows.Forms.CheckBox CHKAOT;
-        private System.Windows.Forms.TextBox TXTURL;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BTNExtras;
         private System.Windows.Forms.Label label1;
@@ -227,6 +231,7 @@
         private System.Windows.Forms.Button BTNMasiva;
         private System.Windows.Forms.OpenFileDialog DLGAbrirArchivo;
         private System.Windows.Forms.Button BTNAcerca;
+        private System.Windows.Forms.CheckBox CHKTrans;
     }
 }
 
