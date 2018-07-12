@@ -16,9 +16,11 @@ namespace WindowsFormsApplication4
     public partial class Form1 : Form
     {
         string SGAURL = "http://172.27.44.23/include/actOS.php";
+        
         public Form1()
         {
             InitializeComponent();
+            this.Text = "SGA APP";
         }
         private void lblmsg(string msg,int style)
         {
