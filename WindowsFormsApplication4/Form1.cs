@@ -130,7 +130,7 @@ namespace WindowsFormsApplication4
             if (this.Height == 140)
             {
                 BTNExtras.Text = "▲";
-                this.Height = 265;
+                this.Height = 253;
             }else
             {
                 BTNExtras.Text = "▼";
