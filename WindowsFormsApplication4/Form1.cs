@@ -16,6 +16,7 @@ namespace WindowsFormsApplication4
     public partial class Form1 : Form
     {
         string SGAURL = "http://172.27.44.23/include/actOS.php";
+        //Parametros para maximizar y minimizar a travez del click la barra de tareas
         const int WS_MINIMIZEBOX = 0x20000;
         const int CS_DBLCLKS = 0x8;
         public Form1()
@@ -23,6 +24,7 @@ namespace WindowsFormsApplication4
             InitializeComponent();
             this.Text = "SGA APP";
         }
+        //funcion para maximizar y minimizar a travez del click la barra de tareas
         protected override CreateParams CreateParams
         {
             get
@@ -36,9 +38,9 @@ namespace WindowsFormsApplication4
         private void lblmsg(string msg,int style)
         {
             LBLMSG.Text = msg;
-            if (style == 1) { LBLMSG.BackColor = Color.Red; }
-            if (style == 2) { LBLMSG.BackColor = Color.Green; }
-            if (style == 3) { LBLMSG.BackColor = Color.Yellow; }
+            if (style == 1) { LBLMSG.BackColor = Color.FromArgb(216, 32, 32); }
+            if (style == 2) { LBLMSG.BackColor = Color.FromArgb(149, 198, 56); }
+            if (style == 3) { LBLMSG.BackColor = Color.FromArgb(216, 216, 64); }
             var t = new Timer();
             t.Interval = 1500; 
             t.Tick += (s, e) =>
@@ -60,13 +62,21 @@ namespace WindowsFormsApplication4
                 using (var wb = new WebClient())
                 {
                     var data = new NameValueCollection();
-                    data["id_bitacora"] = TXTID.Text;
-                    data["num_os_new"] = TXTOS.Text;
+                    data["id_bitacora"] = new String(TXTID.Text.Where(Char.IsDigit).ToArray()); 
+                    data["num_os_new"] = new String(TXTOS.Text.Where(Char.IsDigit).ToArray()); 
                     data["num_os_old"] = "0";
                     var url = SGAURL;
-                    var response = wb.UploadValues(url, "POST", data);
-                    string responseInString = Encoding.UTF8.GetString(response);
-                    lblmsg("Datos ingresados",2);
+                    try
+                    {
+                        var response = wb.UploadValues(url, "POST", data);
+                        string responseInString = Encoding.UTF8.GetString(response);
+                        lblmsg("Datos ingresados", 2);
+                    }
+                    catch (System.Net.WebException o)
+                    {
+                        lblmsg("Error al conectarse", 1);
+                    }
+                    
                 }
                 TXTID.Text = "ID";TXTOS.Text = "OS";
             }
